@@ -7,8 +7,6 @@ sys.path.append(
       '../../'
     )))
 
-print(sys.path)
-
 import pickle
 import numpy as np
 from activations.sigmoid import sigmoid
