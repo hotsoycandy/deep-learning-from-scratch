@@ -1,5 +1,5 @@
 import sys, os
-sys.path.append(os.path.join(sys.path[0], '../'))
+sys.path.append(os.path.join(sys.path[0], '../../'))
 
 import numpy as np
 from PIL import Image
@@ -11,7 +11,7 @@ def img_show (img) :
 
 (x_train, t_train), (x_test, t_test) = load_mnist(
     flatten = True,
-    normalize = True,
+    normalize = False,
     one_hot_label = False
   )
 
