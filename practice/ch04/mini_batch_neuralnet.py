@@ -18,12 +18,16 @@ from TwoLayerNet import TwoLayerNet
   )
 
 train_loss_list = []
+train_acc_list = []
+test_acc_list = []
 
 # 하이퍼파라메터
 iter_sum = 10000
 train_size = x_train.shape[0]
 batch_size = 100
 learning_late = 0.1
+
+iter_per_epoch = max(train_size / batch_size, 1)
 
 net = TwoLayerNet(input_size = 784, hidden_size = 50, output_size = 10)
 
@@ -40,6 +44,15 @@ for i in range(iter_sum) :
 
   loss = net.loss(x_batch, t_batch)
   train_loss_list.append(loss)
+
+  if i % iter_per_epoch == 0 :
+    train_acc = net.accuracy(x_batch, t_batch)
+    train_acc_list.append(train_acc)
+
+    test_acc = net.accuracy(x_batch, t_batch)
+    test_acc_list.append(test_acc)
+
+    print('train_acc: ', train_acc, '. test_acc: ', test_acc)
 
 plt.plot(train_loss_list)
 plt.show()
