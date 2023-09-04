@@ -12,6 +12,7 @@ from losses.cross_entropy_error import cross_entropy_error
 
 class SoftmaxWithLossLayer :
   def __init__ (self) :
+    self.loss = None
     self.y = None
     self.t = None
 
@@ -21,8 +22,10 @@ class SoftmaxWithLossLayer :
     # y = exp / exp_sum
     self.t = t
     self.y = softmax(x)
-    return cross_entropy_error(self.y, t)
+    self.loss = cross_entropy_error(self.y, self.t)
+    return self.loss
 
   def backward (self, dOut = 1) :
     batch_size = self.t.shape[0]
-    return (self.y - self.t) / batch_size
+    dx = (self.y - self.t) / batch_size
+    return dx
