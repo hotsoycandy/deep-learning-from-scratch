@@ -10,7 +10,7 @@ class AffineLayer :
 
   def forward (self, x) :
     self.x = x
-    return np.dot(x, self.W) + self.b
+    return np.dot(self.x, self.W) + self.b
 
   def backward (self, dOut) :
     dx = np.dot(dOut, self.W.T)
