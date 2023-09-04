@@ -6,7 +6,7 @@ sys.path.append(
       '../../'
     )))
 
-import numpy as np
+# import numpy as np
 from activations.softmax import softmax
 from losses.cross_entropy_error import cross_entropy_error
 
