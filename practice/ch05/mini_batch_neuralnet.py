@@ -45,14 +45,14 @@ for i in range(iter_sum) :
   loss = net.loss(x_batch, t_batch)
   train_loss_list.append(loss)
 
-  # if i % iter_per_epoch == 0 :
-  #   train_acc = net.accuracy(x_batch, t_batch)
-  #   train_acc_list.append(train_acc)
+  if i % iter_per_epoch == 0 :
+    train_acc = net.accuracy(x_batch, t_batch)
+    train_acc_list.append(train_acc)
 
-  #   test_acc = net.accuracy(x_batch, t_batch)
-  #   test_acc_list.append(test_acc)
+    test_acc = net.accuracy(x_batch, t_batch)
+    test_acc_list.append(test_acc)
 
-  #   print('train_acc: ', train_acc, '. test_acc: ', test_acc)
+    print('train_acc: ', train_acc, '. test_acc: ', test_acc)
 
 plt.plot(train_loss_list)
 plt.show()
